@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Better-Auth Template Project
 
-## Getting Started
+A ready-to-use authentication template powered by Better-Auth with SQLite integration.
 
-First, run the development server:
+## 🛠️ Setup Instructions
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Configure Environment
+
+Create a `.env` file in your project root with:
+
+```bash
+BETTER_AUTH_SECRET='your-secret-generated-from-better-auth-site'
+```
+
+> **Note:** Replace `your-secret-generated-from-better-auth-site` with your actual secret from [Better-Auth](https://better-auth.dev) settings.
+
+### 3. Initialize Database
+
+Generate the SQLite schema:
+
+```bash
+npm run db
+```
+
+### 4. Start Development Server
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 5. Navigate to the Sign-Up Page
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open your browser and go to:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+http://localhost:3000/sign-up
+```
 
-## Learn More
+### 6. Create a User
 
-To learn more about Next.js, take a look at the following resources:
+Fill out the sign-up form with a new email and password to create your user account.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 7. Authenticate with Your User
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+After signing up, you can log in using the same credentials at:
 
-## Deploy on Vercel
+```
+http://localhost:3000/sign-in
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Once signed in, you’ll receive an authentication token (via cookies or headers depending on configuration), which can be used to access protected routes or APIs.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📝 Notes
+
+- This project uses **SQLite** for demonstration purposes.
+- For production, refer to the [Better-Auth documentation](https://better-auth.dev/docs) to integrate with PostgreSQL, MySQL, or any other supported database and customize your authentication flow.
+- You can also extend the setup with OAuth providers, magic links, 2FA, and more using Better-Auth’s modular approach.
+
+## 📂 Project Structure (Optional)
+
+Here's a quick glance at the typical folder structure:
+
+```
+.
+├── src/
+│   ├── auth/          # Better-auth setup
+│   ├── db/            # SQLite schema and utilities
+│   └── routes/        # Auth and API routes
+├── .env
+├── package.json
+└── README.md
+```
+
+---
+
+Let me know if you want to add API examples, curl testing commands, or frontend integration tips!
